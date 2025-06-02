@@ -72,13 +72,13 @@
       transform: translateY(-5px);
     }
     .preview {
-  max-width: 100%;
-  width: 200px;
-  height: auto;
-  border-radius: 12px;
-  margin: 10px 0;
-  display: block;
-}
+      max-width: 100%;
+      width: 200px;
+      height: auto;
+      border-radius: 12px;
+      margin: 10px 0;
+      display: block;
+    }
     a {
       color: #7ec4ff;
       text-decoration: none;
@@ -141,7 +141,7 @@
       <p>Графика для стенда, ключевые ТТХ, печатный макет. <a href="роллап скала.pdf" download>Скачать PDF</a></p>
     </div>
 
-  </section>
+   </section>
 
   <section class="section" data-aos="fade-up">
     <h2>Инструменты и нейросети</h2>
@@ -163,18 +163,17 @@
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
-
-    const themeToggle = document.querySelector('.theme-toggle');
-    const currentTheme = localStorage.getItem('theme');
-
-    if (currentTheme === 'light') {
-      document.body.classList.add('light');
-    }
-
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('light');
-      const theme = document.body.classList.contains('light') ? 'light' : 'dark';
-      localStorage.setItem('theme', theme);
+    document.addEventListener('DOMContentLoaded', function () {
+      const themeToggle = document.querySelector('.theme-toggle');
+      const currentTheme = localStorage.getItem('theme');
+      if (currentTheme === 'light') {
+        document.body.classList.add('light');
+      }
+      themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light');
+        const theme = document.body.classList.contains('light') ? 'light' : 'dark';
+        localStorage.setItem('theme', theme);
+      });
     });
   </script>
 </body>
