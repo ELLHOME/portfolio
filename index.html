@@ -1,110 +1,178 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>Портфолио — Михаил Боргояков</title>
-  <link rel="icon" type="image/png" href="https://fav.farm/✨" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Михаил Боргояков — Креативное портфолио</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
   <style>
+    :root {
+      --bg-color: #0f1117;
+      --text-color: #f4f4f4;
+      --card-bg: #1a1d24;
+    }
+    body.light {
+      --bg-color: #ffffff;
+      --text-color: #111;
+      --card-bg: #f4f4f4;
+    }
+    * { box-sizing: border-box; }
     body {
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      max-width: 800px;
+      margin: 0;
+      font-family: 'Manrope', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      scroll-behavior: smooth;
+      transition: background 0.3s, color 0.3s;
+    }
+    header {
+      text-align: center;
+      padding: 80px 20px 40px;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: 2px solid var(--text-color);
+      color: var(--text-color);
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .section {
+      padding: 60px 20px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 20px;
-      background: linear-gradient(145deg, #f0f2f5, #ffffff);
-      color: #333;
-      animation: fadeIn 1s ease-in;
     }
-
-    h1, h2 {
-      color: #1e1e1e;
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
     }
-
-    ul {
-      margin-left: 20px;
-    }
-
-    a {
-      color: #1a73e8;
-      text-decoration: none;
-    }
-
-    .project, .section {
-      background: #fff;
-      border-radius: 12px;
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
       padding: 20px;
       margin-bottom: 30px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
     }
-
-    .project:hover, .section:hover {
-      transform: translateY(-3px);
+    .card:hover {
+      transform: translateY(-5px);
     }
-
-    .contact {
-      font-size: 14px;
-      color: #555;
+    .preview {
+      width: 100%;
+      border-radius: 12px;
+      margin: 10px 0;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    a {
+      color: #7ec4ff;
+      text-decoration: none;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 40px;
+      font-size: 0.9rem;
+      color: #888;
     }
   </style>
 </head>
 <body>
-  <h1>Михаил Боргояков</h1>
-  <p class="contact">Контакты: ellhome@yandex.ru | +7 (926) 519-27-77 | Москва</p>
+  <button class="theme-toggle">Сменить тему</button>
 
-  <div class="section">
+  <header data-aos="fade-down">
+    <h1>Михаил Боргояков</h1>
+    <p>Креативный дизайнер / Моушн / 3D / Веб</p>
+  </header>
+
+  <section class="section" data-aos="fade-up">
     <h2>Обо мне</h2>
-    <p>Креативный специалист с инженерным бэкграундом. Разрабатываю визуальные решения для бизнеса: сайты, логотипы, анимации и промо-материалы.
-      Умею совмещать эстетику с задачами бизнеса, использую современные инструменты и нейросети.</p>
-  </div>
+    <div class="card">
+      <p>Креативный специалист с инженерным мышлением. Создаю визуальные решения для бизнеса: от сайтов до 3D-анимации. Балансирую эстетику, смысл и бизнес-цели. Использую современные инструменты и нейросети.</p>
+    </div>
+  </section>
 
-  <div class="section">
+  <section class="section" data-aos="fade-up">
     <h2>Проекты</h2>
 
-    <div class="project">
+    <div class="card">
       <h3>Сайты для B2B-компаний</h3>
+      <img class="preview" src="превью сайта.png" alt="Превью сайтов" />
       <ul>
         <li><a href="https://monterra.ru" target="_blank">monterra.ru</a></li>
         <li><a href="https://promgeoservice.ru" target="_blank">promgeoservice.ru</a></li>
         <li><a href="https://smartnetrtk.ru" target="_blank">smartnetrtk.ru</a></li>
       </ul>
-      <p>Что сделал: структура, дизайн, контент, адаптация под бизнес. Инструменты: Tilda, Photoshop, Illustrator, нейросети.</p>
+      <p>Дизайн, структура, контент, Tilda + графика + нейросети.</p>
     </div>
 
-    <div class="project">
-      <h3>Разработка логотипов (3 компании холдинга)</h3>
-      <p>Создание айдентики с нуля: анализ отрасли, формирование визуального кода, версии для веб и печати. Инструменты: Illustrator, Photoshop.</p>
+    <div class="card">
+      <h3>Айдентика: логотипы для холдинга</h3>
+      <img class="preview" src="логотип.png" alt="Превью логотипов" />
+      <p>Разработка визуального стиля и логотипов с нуля. Анализ, концепция, реализация.</p>
     </div>
 
-    <div class="project">
-      <h3>3D-вентилятор с имитацией голограммы</h3>
-      <p>Анимация под выставочное оборудование. Инструменты: Cinema 4D, After Effects, Photoshop.</p>
-      <p><a href="https://drive.google.com/file/d/16y-wr0ue4X5TRhJMQTao5X1zZ2ltQXJD/view?pli=1" target="_blank">Смотреть видео</a></p>
+    <div class="card">
+      <h3>3D-вентилятор с голограммой</h3>
+      <img class="preview" src="приемник листовка.jpg" alt="Превью вентилятора" />
+      <p>Анимация в Cinema 4D + After Effects. Для выставки. <a href="https://drive.google.com/file/d/16y-wr0ue4X5TRhJMQTao5X1zZ2ltQXJD/view?pli=1" target="_blank">Смотреть видео</a></p>
     </div>
 
-    <div class="project">
-      <h3>Роллап для радара «СКАЛА»</h3>
-      <p>Дизайн широкоформатного баннера для выставочного стенда. Отражение ключевых ТТХ, подготовка для печати. Инструменты: Illustrator, Photoshop.</p>
-      <p><a href="роллап скала.pdf" download>Скачать PDF</a></p>
+    <div class="card">
+      <h3>Роллап для радара СКАЛА</h3>
+      <img class="preview" src="https://via.placeholder.com/800x400?text=Banner+SCALA" alt="Превью баннера" />
+      <p>Графика для стенда, ключевые ТТХ, печатный макет. <a href="роллап скала.pdf" download>Скачать PDF</a></p>
     </div>
-  </div>
 
-  <div class="section">
-    <h2>Инструменты и навыки</h2>
-    <ul>
-      <li>Adobe After Effects — анимация, композитинг</li>
-      <li>Cinema 4D + Redshift — 3D-графика, визуализация</li>
-      <li>Adobe Photoshop / Illustrator — графика, логотипы, айдентика</li>
-      <li>Tilda, Figma — сайты и прототипы</li>
-      <li>Нейросети: Midjourney, Stable Diffusion, ChatGPT, ComfyUI, Kling, Runway, Veo</li>
-    </ul>
-  </div>
+  </section>
+
+  <section class="section" data-aos="fade-up">
+    <h2>Инструменты и нейросети</h2>
+    <div class="card">
+      <ul>
+        <li>After Effects, Photoshop, Illustrator</li>
+        <li>Cinema 4D + Redshift</li>
+        <li>Tilda, Figma</li>
+        <li>Midjourney, Stable Diffusion, ComfyUI, ChatGPT</li>
+        <li>Kling, Runway, Veo</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    Связь: ellhome@yandex.ru / +7 (926) 519-27-77 / Москва
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    const themeToggle = document.querySelector('.theme-toggle');
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme === 'light') {
+      document.body.classList.add('light');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light');
+      const theme = document.body.classList.contains('light') ? 'light' : 'dark';
+      localStorage.setItem('theme', theme);
+    });
+  </script>
 </body>
 </html>
