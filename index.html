@@ -122,6 +122,28 @@
       color: #888;
     }
   </style>
+.logo-carousel {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.logo-carousel img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.logo-carousel img.active-logo {
+  opacity: 1;
+  z-index: 1;
+} 
 </head>
 <body>
   <button class="theme-toggle">Сменить тему</button>
@@ -227,5 +249,18 @@
       });
     });
   </script>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const logos = document.querySelectorAll('.logo-carousel img');
+    let index = 0;
+
+    setInterval(() => {
+      logos[index].classList.remove('active-logo');
+      index = (index + 1) % logos.length;
+      logos[index].classList.add('active-logo');
+    }, 2500);
+  });
+</script>
+
 </body>
 </html>
