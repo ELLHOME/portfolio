@@ -125,7 +125,8 @@
 .logo-carousel {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 200px; /* фиксированная высота для контейнера */
+  overflow: hidden;
 }
 
 .logo-carousel img {
@@ -133,7 +134,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  max-height: 200px;
+  height: 100%; /* чтобы заполняли контейнер */
   object-fit: contain;
   border-radius: 12px;
   opacity: 0;
@@ -143,7 +144,8 @@
 .logo-carousel img.active-logo {
   opacity: 1;
   z-index: 1;
-} 
+}
+
 </head>
 <body>
   <button class="theme-toggle">Сменить тему</button>
