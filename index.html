@@ -126,26 +126,26 @@
 <body>
   <button class="theme-toggle">Сменить тему</button>
 
-  <header">
+  <header data-aos="fade-down">
     <h1>Михаил Боргояков</h1>
     <p>Креативный дизайнер / Моушн / 3D / Веб</p>
   </header>
 
-  <section class="section">
+  <section class="section" data-aos="fade-up">
     <h2>Обо мне</h2>
     <div class="card">
       <p>Креативный специалист с инженерным мышлением. Создаю визуальные решения для бизнеса: от сайтов до 3D-анимации. Балансирую эстетику, смысл и бизнес-цели. Использую современные инструменты и нейросети.</p>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" data-aos="fade-up">
     <h2>Проекты</h2>
 
     <div class="card project-grid">
-      <div class="project-preview">
+      <div class="project-preview" data-aos="fade-right">
         <img src="превью сайта.png" alt="B2B сайты">
       </div>
-      <div class="project-content">
+      <div class="project-content" data-aos="fade-left">
         <h3>Сайты для B2B-компаний</h3>
         <ul>
           <li><a href="https://monterra.ru" target="_blank">monterra.ru</a></li>
@@ -157,31 +157,72 @@
     </div>
 
     <div class="card project-grid">
-      <div class="project-preview">
+      <div class="project-preview" data-aos="fade-right">
         <img src="логотип.png" alt="Айдентика">
       </div>
-      <div class="project-content">
+      <div class="project-content" data-aos="fade-left">
         <h3>Айдентика: логотипы для холдинга</h3>
         <p>Разработка визуального стиля и логотипов с нуля. Анализ, концепция, реализация.</p>
       </div>
     </div>
 
     <div class="card project-grid">
-      <div class="project-preview">
-        <video width="100%" controls>
-  <source src="лого для вентеля.mp4" type="video/mp4">
-</video>
+      <div class="project-preview" data-aos="fade-right">
+        <video width="100%" controls poster="стопкадр.png" style="border-radius: 12px;">
+          <source src="лого для вентеля.mp4" type="video/mp4">
           Ваш браузер не поддерживает тег video.
         </video>
       </div>
-      <div class="project-content">
+      <div class="project-content" data-aos="fade-left">
         <h3>3D-вентилятор с голограммой</h3>
         <p>Анимация в Cinema 4D + After Effects. Для выставки. Видео встроено прямо на сайт.</p>
       </div>
     </div>
 
     <div class="card project-grid">
-      <div class="project-preview">
+      <div class="project-preview" data-aos="fade-right">
         <img src="превью роллап.png" alt="Роллап для радара СКАЛА">
       </div>
-      <div class="project-con
+      <div class="project-content" data-aos="fade-left">
+        <h3>Роллап для радара СКАЛА</h3>
+        <p>Графика для стенда, ключевые ТТХ, печатный макет. <a href="роллап скала.pdf" download>Скачать PDF</a></p>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="section" data-aos="fade-up">
+    <h2>Инструменты и нейросети</h2>
+    <div class="card">
+      <ul>
+        <li>After Effects, Photoshop, Illustrator</li>
+        <li>Cinema 4D + Redshift</li>
+        <li>Tilda, Figma</li>
+        <li>Midjourney, Stable Diffusion, ComfyUI, ChatGPT</li>
+        <li>Kling, Runway, Veo</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    Связь: ellhome@yandex.ru / +7 (926) 519-27-77 / Москва
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    document.addEventListener('DOMContentLoaded', function () {
+      const themeToggle = document.querySelector('.theme-toggle');
+      const currentTheme = localStorage.getItem('theme');
+      if (currentTheme === 'light') {
+        document.body.classList.add('light');
+      }
+      themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light');
+        const theme = document.body.classList.contains('light') ? 'light' : 'dark';
+        localStorage.setItem('theme', theme);
+      });
+    });
+  </script>
+</body>
+</html>
