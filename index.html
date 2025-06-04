@@ -280,24 +280,16 @@
   }
 }
   
-/* Анимация переходов между резюме */
-.fade-enter {
-  opacity: 0;
-  transform: translateY(20px);
-}
-.fade-enter-active {
+/* Плавное переключение резюме */
+.resume-block {
   opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.5s ease;
+  position: relative;
 }
-.fade-exit {
-  opacity: 1;
-  transform: translateY(0);
-}
-.fade-exit-active {
+.resume-block.hidden {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+  position: absolute;
 }
 </style>
 <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
@@ -309,7 +301,7 @@
 <button class="resume-toggle" onclick="toggleResume()">Сменить резюме</button>
 </div>
 <!-- КРЕАТИВЩИК -->
-<div id="creative-resume">
+<div class="resume-block" id="creative-resume">
 <header class="card" data-aos="fade-down" style="display: flex; align-items: center; gap: 20px; max-width: 960px; margin: 60px auto 40px;">
 <div class="photo-wrapper">
 <img alt="Михаил Боргояков" class="profile-photo" src="photo.jpg"/>
@@ -391,7 +383,7 @@
     </footer>
 </div>
 <!-- ИНЖЕНЕР -->
-<div id="engineer-resume" style="display: none;">
+<div class="resume-block hidden" id="engineer-resume">
 <header class="card" data-aos="fade-down" style="display: flex; align-items: center; gap: 20px; max-width: 960px; margin: 60px auto 40px;">
 <div class="photo-wrapper">
 <img alt="Михаил Боргояков" class="profile-photo" src="photo-engineer.jpg">
@@ -488,66 +480,47 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
-AOS.init();
+    AOS.init();
 
-document.addEventListener('DOMContentLoaded', function () {
-  const themeToggle = document.querySelector('.theme-toggle');
-  const currentTheme = localStorage.getItem('theme');
-  if (currentTheme === 'light') {
-    document.body.classList.add('light');
+    document.addEventListener('DOMContentLoaded', function () {
+      const themeToggle = document.querySelector('.theme-toggle');
+      const currentTheme = localStorage.getItem('theme');
+      if (currentTheme === 'light') {
+        document.body.classList.add('light');
+      }
+      themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('light');
+  const theme = document.body.classList.contains('light') ? 'light' : 'dark';
+  localStorage.setItem('theme', theme);
+
+  const sound = document.getElementById('theme-sound');
+  if (sound) {
+    sound.currentTime = 0;
+    sound.play();
   }
-  themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('light');
-    const theme = document.body.classList.contains('light') ? 'light' : 'dark';
-    localStorage.setItem('theme', theme);
-
-    const sound = document.getElementById('theme-sound');
-    if (sound) {
-      sound.currentTime = 0;
-      sound.play();
-    }
-  });
-
-  const logos = document.querySelectorAll('.logo-carousel img');
-  let index = 0;
-  setInterval(() => {
-    logos[index].classList.remove('active-logo');
-    index = (index + 1) % logos.length;
-    logos[index].classList.add('active-logo');
-  }, 2500);
 });
 
+
+      const logos = document.querySelectorAll('.logo-carousel img');
+      let index = 0;
+      setInterval(() => {
+        logos[index].classList.remove('active-logo');
+        index = (index + 1) % logos.length;
+        logos[index].classList.add('active-logo');
+      }, 2500);
+    });
+
+    
 function toggleResume() {
   const creative = document.getElementById('creative-resume');
   const engineer = document.getElementById('engineer-resume');
-  const isCreativeVisible = creative.style.display !== 'none';
+  const isCreativeVisible = !creative.classList.contains('hidden');
 
-  const fadeOut = (el) => {
-    el.classList.add('fade-exit', 'fade-exit-active');
-    setTimeout(() => {
-      el.style.display = 'none';
-      el.classList.remove('fade-exit', 'fade-exit-active');
-    }, 600);
-  };
+  const from = isCreativeVisible ? creative : engineer;
+  const to = isCreativeVisible ? engineer : creative;
 
-  const fadeIn = (el) => {
-    el.style.display = '';
-    el.classList.add('fade-enter');
-    requestAnimationFrame(() => {
-      el.classList.add('fade-enter-active');
-    });
-    setTimeout(() => {
-      el.classList.remove('fade-enter', 'fade-enter-active');
-    }, 600);
-  };
-
-  if (isCreativeVisible) {
-    fadeOut(creative);
-    fadeIn(engineer);
-  } else {
-    fadeOut(engineer);
-    fadeIn(creative);
-  }
+  from.classList.add('hidden');
+  to.classList.remove('hidden');
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -557,7 +530,22 @@ function toggleResume() {
     sound.play();
   }
 }
-</script>
+
+  const creative = document.getElementById('creative-resume');
+  const engineer = document.getElementById('engineer-resume');
+  const isCreativeVisible = creative.style.display !== 'none';
+
+  creative.style.display = isCreativeVisible ? 'none' : '';
+  engineer.style.display = isCreativeVisible ? '' : 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  const sound = document.getElementById('resume-sound');
+  if (sound) {
+    sound.currentTime = 0;
+    sound.play();
+  }
+}
+  </script>
 <script>
   function initMap() {
     const map = L.map("map").setView([55.7558, 37.6176], 4); // Центр — Москва
