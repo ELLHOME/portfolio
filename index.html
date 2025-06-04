@@ -480,72 +480,57 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <script>
-    AOS.init();
+  AOS.init();
 
-    document.addEventListener('DOMContentLoaded', function () {
-      const themeToggle = document.querySelector('.theme-toggle');
-      const currentTheme = localStorage.getItem('theme');
-      if (currentTheme === 'light') {
-        document.body.classList.add('light');
+  document.addEventListener('DOMContentLoaded', function () {
+    const themeToggle = document.querySelector('.theme-toggle');
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'light') {
+      document.body.classList.add('light');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('light');
+      const theme = document.body.classList.contains('light') ? 'light' : 'dark';
+      localStorage.setItem('theme', theme);
+
+      const sound = document.getElementById('theme-sound');
+      if (sound) {
+        sound.currentTime = 0;
+        sound.play();
       }
-      themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('light');
-  const theme = document.body.classList.contains('light') ? 'light' : 'dark';
-  localStorage.setItem('theme', theme);
-
-  const sound = document.getElementById('theme-sound');
-  if (sound) {
-    sound.currentTime = 0;
-    sound.play();
-  }
-});
-
-
-      const logos = document.querySelectorAll('.logo-carousel img');
-      let index = 0;
-      setInterval(() => {
-        logos[index].classList.remove('active-logo');
-        index = (index + 1) % logos.length;
-        logos[index].classList.add('active-logo');
-      }, 2500);
     });
 
-    
-function toggleResume() {
-  const creative = document.getElementById('creative-resume');
-  const engineer = document.getElementById('engineer-resume');
-  const isCreativeVisible = !creative.classList.contains('hidden');
+    const logos = document.querySelectorAll('.logo-carousel img');
+    let index = 0;
+    setInterval(() => {
+      logos[index].classList.remove('active-logo');
+      index = (index + 1) % logos.length;
+      logos[index].classList.add('active-logo');
+    }, 2500);
+  });
 
-  const from = isCreativeVisible ? creative : engineer;
-  const to = isCreativeVisible ? engineer : creative;
+  function toggleResume() {
+    const creative = document.getElementById('creative-resume');
+    const engineer = document.getElementById('engineer-resume');
+    const isCreativeVisible = !creative.classList.contains('hidden');
 
-  from.classList.add('hidden');
-  to.classList.remove('hidden');
+    const from = isCreativeVisible ? creative : engineer;
+    const to = isCreativeVisible ? engineer : creative;
 
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+    from.classList.add('hidden');
+    to.classList.remove('hidden');
 
-  const sound = document.getElementById('resume-sound');
-  if (sound) {
-    sound.currentTime = 0;
-    sound.play();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    const sound = document.getElementById('resume-sound');
+    if (sound) {
+      sound.currentTime = 0;
+      sound.play();
+    }
   }
-}
+</script>
 
-  const creative = document.getElementById('creative-resume');
-  const engineer = document.getElementById('engineer-resume');
-  const isCreativeVisible = creative.style.display !== 'none';
-
-  creative.style.display = isCreativeVisible ? 'none' : '';
-  engineer.style.display = isCreativeVisible ? '' : 'none';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-
-  const sound = document.getElementById('resume-sound');
-  if (sound) {
-    sound.currentTime = 0;
-    sound.play();
-  }
-}
-  </script>
 <script>
   function initMap() {
     const map = L.map("map").setView([55.7558, 37.6176], 4); // Центр — Москва
