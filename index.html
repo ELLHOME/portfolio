@@ -242,6 +242,44 @@
   max-width: 100%;
   overflow-x: hidden;
 }
+.button-bar {
+  position: fixed;
+  z-index: 9999;
+  right: 20px;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.theme-toggle,
+.resume-toggle {
+  background: none;
+  border: 2px solid var(--text-color);
+  color: var(--text-color);
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+}
+
+@media (max-width: 600px) {
+  .button-bar {
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .theme-toggle,
+  .resume-toggle {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+}
 }
   </style>
   <link
@@ -251,8 +289,10 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
+  <div class="button-bar">
   <button class="theme-toggle">Сменить тему</button>
   <button class="resume-toggle" onclick="toggleResume()">Сменить резюме</button>
+</div>
 
   <!-- КРЕАТИВЩИК -->
   <div id="creative-resume">
