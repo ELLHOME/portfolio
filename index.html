@@ -345,7 +345,38 @@
     </footer>
   </div>
 
+ <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
+    AOS.init();
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const themeToggle = document.querySelector('.theme-toggle');
+      const currentTheme = localStorage.getItem('theme');
+      if (currentTheme === 'light') {
+        document.body.classList.add('light');
+      }
+      themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('light');
+  const theme = document.body.classList.contains('light') ? 'light' : 'dark';
+  localStorage.setItem('theme', theme);
+
+  const sound = document.getElementById('theme-sound');
+  if (sound) {
+    sound.currentTime = 0;
+    sound.play();
+  }
+});
+
+
+      const logos = document.querySelectorAll('.logo-carousel img');
+      let index = 0;
+      setInterval(() => {
+        logos[index].classList.remove('active-logo');
+        index = (index + 1) % logos.length;
+        logos[index].classList.add('active-logo');
+      }, 2500);
+    });
+ 
     function toggleResume() {
       const creative = document.getElementById('creative-resume');
       const engineer = document.getElementById('engineer-resume');
