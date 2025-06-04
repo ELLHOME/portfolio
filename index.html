@@ -416,14 +416,20 @@
     });
 
     function toggleResume() {
-      const creative = document.getElementById('creative-resume');
-      const engineer = document.getElementById('engineer-resume');
-      const isCreativeVisible = creative.style.display !== 'none';
+  const creative = document.getElementById('creative-resume');
+  const engineer = document.getElementById('engineer-resume');
+  const isCreativeVisible = creative.style.display !== 'none';
 
-      creative.style.display = isCreativeVisible ? 'none' : '';
-      engineer.style.display = isCreativeVisible ? '' : 'none';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+  creative.style.display = isCreativeVisible ? 'none' : '';
+  engineer.style.display = isCreativeVisible ? '' : 'none';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  const sound = document.getElementById('resume-sound');
+  if (sound) {
+    sound.currentTime = 0;
+    sound.play();
+  }
+}
   </script>
   <script>
   function initMap() {
@@ -462,5 +468,6 @@
   });
 </script>
 <audio id="theme-sound" src="toggle.mp3" preload="auto"></audio>
+<audio id="resume-sound" src="switch.mp3" preload="auto"></audio>
 </body>
 </html>
