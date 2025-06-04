@@ -394,10 +394,17 @@
         document.body.classList.add('light');
       }
       themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('light');
-        const theme = document.body.classList.contains('light') ? 'light' : 'dark';
-        localStorage.setItem('theme', theme);
-      });
+  document.body.classList.toggle('light');
+  const theme = document.body.classList.contains('light') ? 'light' : 'dark';
+  localStorage.setItem('theme', theme);
+
+  const sound = document.getElementById('theme-sound');
+  if (sound) {
+    sound.currentTime = 0;
+    sound.play();
+  }
+});
+
 
       const logos = document.querySelectorAll('.logo-carousel img');
       let index = 0;
@@ -454,5 +461,6 @@
     initMap();
   });
 </script>
+<audio id="theme-sound" src="toggle.mp3" preload="auto"></audio>
 </body>
 </html>
