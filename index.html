@@ -1,274 +1,145 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Михаил Боргояков — Креативное портфолио</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Двойное резюме</title>
   <style>
     :root {
-      --bg-color: #0f1117;
-      --text-color: #f4f4f4;
-      --card-bg: #1a1d24;
-      --accent-color: #7ec4ff;
+      --bg: #f2f2f2;
+      --text: #222;
+      --accent: #007acc;
+      --border: #ccc;
     }
-    body.light {
-      --bg-color: #ffffff;
-      --text-color: #111;
-      --card-bg: #f4f4f4;
-      --accent-color: #0077cc;
-    }
-    * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: 'Manrope', sans-serif;
-      background: var(--bg-color);
-      color: var(--text-color);
-      scroll-behavior: smooth;
-      transition: background 0.3s, color 0.3s;
-    }
-    header {
-      text-align: center;
-      padding: 80px 20px 40px;
-    }
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 1.2rem;
-      color: #ccc;
-    }
-    .theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 9999;
-      background: none;
-      border: 2px solid var(--text-color);
-      color: var(--text-color);
-      padding: 6px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    .section {
-      padding: 60px 20px;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 30px;
-    }
-    .card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 30px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .project-grid {
+      padding: 2rem;
+      font-family: "Segoe UI", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
       display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
+      flex-direction: column;
       align-items: center;
     }
-    .project-preview {
-      flex: 1 1 300px;
-      max-width: 200px;
-      transition: transform 0.3s ease;
+
+    h1 {
+      margin-bottom: 1rem;
     }
-    .project-preview img,
-    .project-preview video {
-      max-height: 200px;
-      object-fit: cover;
-      object-position: center;
+
+    .toggle {
+      margin-bottom: 2rem;
+    }
+
+    .toggle button {
+      background-color: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .toggle button:hover {
+      background-color: #005f99;
+    }
+
+    .resume {
+      max-width: 800px;
       width: 100%;
-      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background-color: #fff;
+      opacity: 0;
+      transform: scale(0.98);
+      transition: all 0.4s ease;
+      display: none;
     }
-    .project-preview:hover {
-      transform: scale(1.03);
-    }
-    .project-content {
-      flex: 1 1 300px;
-    }
-    @media (max-width: 768px) {
-      .project-grid {
-        flex-direction: column;
-      }
-      .project-preview,
-      .project-content {
-        max-width: 100%;
-      }
-    }
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    footer {
-      text-align: center;
-      padding: 40px;
-      font-size: 0.9rem;
-      color: #888;
-    }
-    .logo-carousel {
-  position: relative;
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-}
 
-.logo-carousel img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 12px;
-  opacity: 0;
-  transition: opacity 0.6s ease-in-out;
-}
+    .resume.active {
+      display: block;
+      opacity: 1;
+      transform: scale(1);
+    }
 
-.logo-carousel img.active-logo {
-  opacity: 1;
-  z-index: 1;
-}
+    .section {
+      margin-bottom: 1.5rem;
+    }
+
+    .section h2 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+
+      .resume {
+        padding: 1rem;
+      }
+
+      .toggle button {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
-  <button class="theme-toggle">Сменить тему</button>
 
-  <header data-aos="fade-down">
-    <h1>Михаил Боргояков</h1>
-    <p>Креативный дизайнер / Моушн / 3D / Веб</p>
-  </header>
+  <h1>Моё резюме</h1>
 
-  <section class="section" data-aos="fade-up">
-    <h2>Обо мне</h2>
-    <div class="card">
-      <p>Креативный специалист с инженерным мышлением. Создаю визуальные решения для бизнеса: от сайтов до 3D-анимации. Балансирую эстетику, смысл и бизнес-цели. Использую современные инструменты и нейросети.</p>
+  <div class="toggle">
+    <button onclick="toggleResume()">Сменить режим: <span id="mode-label">Креативщик</span></button>
+  </div>
+
+  <div id="resume-creative" class="resume active">
+    <div class="section">
+      <h2>Креативщик</h2>
+      <p>Навыки: After Effects, Photoshop, Illustrator, Cinema 4D, нейросети (Stable Diffusion, ComfyUI), создание сайтов, логотипов и промо-материалов.</p>
     </div>
-  </section>
-
-  <section class="section" data-aos="fade-up">
-    <h2>Проекты</h2>
-
-    <div class="card project-grid">
-      <div class="project-preview" data-aos="fade-right">
-        <img src="превью сайта.jpg" alt="B2B сайты">
-      </div>
-      <div class="project-content" data-aos="fade-left">
-        <h3>Сайты для B2B-компаний</h3>
-        <ul>
-          <li><a href="https://monterra.ru" target="_blank">monterra.ru</a></li>
-          <li><a href="https://promgeoservice.ru" target="_blank">promgeoservice.ru</a></li>
-          <li><a href="https://smartnetrtk.ru" target="_blank">smartnetrtk.ru</a></li>
-        </ul>
-        <p>Дизайн, структура, контент, Tilda + графика + нейросети.</p>
-      </div>
-    </div>
-
-    <div class="card project-grid">
-     <div class="project-preview logo-carousel" data-aos="fade-right">
-  <img src="логотип.png" alt="Логотип 1" class="active-logo">
-  <img src="логотип 1.png" alt="Логотип 2">
-  <img src="логотип 2.png" alt="Логотип">
-</div>
-
-      <div class="project-content" data-aos="fade-left">
-        <h3>Айдентика: логотипы для холдинга</h3>
-        <p>Разработка визуального стиля и логотипов с нуля. Анализ, концепция, реализация.</p>
-      </div>
-    </div>
-
-    <div class="card project-grid">
-      <div class="project-preview" data-aos="fade-right">
-       <video 
-  autoplay 
-  muted 
-  loop 
-  playsinline 
-  poster="стопкадр.png" 
-  style="width: 100%; border-radius: 12px;" 
-  data-aos="fade-right">
-  <source src="лого для вентеля.mp4" type="video/mp4">
-  Ваш браузер не поддерживает тег video.
-</video>
-      </div>
-      <div class="project-content" data-aos="fade-left">
-        <h3>3D-вентилятор с голограммой</h3>
-        <p>Анимация в Cinema 4D + After Effects. Для выставки.</p>
-      </div>
-    </div>
-
-    <div class="card project-grid">
-      <div class="project-preview" data-aos="fade-right">
-        <img src="превью роллап.png" alt="Роллап для радара СКАЛА">
-      </div>
-      <div class="project-content" data-aos="fade-left">
-        <h3>Роллапы для выставки</h3>
-        <p>Графика для стенда, ключевые ТТХ, печатный макет. </p>
-      </div>
-    </div>
-
-  </section>
-
-  <section class="section" data-aos="fade-up">
-    <h2>Инструменты и нейросети</h2>
-    <div class="card">
+    <div class="section">
+      <h2>Проекты</h2>
       <ul>
-        <li>After Effects, Photoshop, Illustrator</li>
-        <li>Cinema 4D + Redshift</li>
-        <li>Tilda, Figma</li>
-        <li>Midjourney, Stable Diffusion, ComfyUI, ChatGPT</li>
-        <li>Kling, Runway, Veo</li>
+        <li>3 сайта (включая адаптивную верстку, визуальные концепты)</li>
+        <li>3 логотипа (в стиле хай-тек, минимализм)</li>
+        <li>2 промо для выставок</li>
       </ul>
     </div>
-  </section>
+  </div>
 
-  <footer>
-    Связь: ellhome@yandex.ru / +7 (926) 519-27-77 / Москва
-  </footer>
+  <div id="resume-engineer" class="resume">
+    <div class="section">
+      <h2>Сервисный инженер</h2>
+      <p>Навыки: монтаж, настройка и обслуживание геодезического оборудования (GNSS, радары, тахеометры), выезды, спецодежда, документация.</p>
+    </div>
+    <div class="section">
+      <h2>Опыт</h2>
+      <ul>
+        <li>Компания "Промгеосервис" — сервисное сопровождение радаров</li>
+        <li>Работа в полевых условиях, знание техники и логистики</li>
+        <li>Разработка положения о нанесении логотипов на спецодежду</li>
+      </ul>
+    </div>
+  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    AOS.init();
-    document.addEventListener('DOMContentLoaded', function () {
-      const themeToggle = document.querySelector('.theme-toggle');
-      const currentTheme = localStorage.getItem('theme');
-      if (currentTheme === 'light') {
-        document.body.classList.add('light');
-      }
-      themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('light');
-        const theme = document.body.classList.contains('light') ? 'light' : 'dark';
-        localStorage.setItem('theme', theme);
-      });
-    });
-  </script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const logos = document.querySelectorAll('.logo-carousel img');
-    let index = 0;
+    const creative = document.getElementById('resume-creative');
+    const engineer = document.getElementById('resume-engineer');
+    const modeLabel = document.getElementById('mode-label');
+    let isCreative = true;
 
-    setInterval(() => {
-      logos[index].classList.remove('active-logo');
-      index = (index + 1) % logos.length;
-      logos[index].classList.add('active-logo');
-    }, 2500);
-  });
-</script>
-  
+    function toggleResume() {
+      isCreative = !isCreative;
+      creative.classList.toggle('active');
+      engineer.classList.toggle('active');
+      modeLabel.textContent = isCreative ? 'Креативщик' : 'Сервисный инженер';
+    }
+  </script>
+
 </body>
 </html>
