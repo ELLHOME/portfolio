@@ -180,6 +180,25 @@
   href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 />
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+.photo-wrapper {
+  overflow: hidden;
+  border-radius: 12px;
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.photo-wrapper:hover .profile-photo {
+  transform: scale(1.1);
+}
 </head>
 <body>
   <button class="theme-toggle">Сменить тему</button>
@@ -188,8 +207,9 @@
   <!-- КРЕАТИВЩИК -->
   <div id="creative-resume">
     <header class="card" data-aos="fade-down" style="display: flex; align-items: center; gap: 20px; max-width: 960px; margin: 60px auto 40px;">
-  <img src="photo.jpg" alt="Михаил Боргояков" style="width: 120px; height: 120px; border-radius: 12px; object-fit: cover;" />
-  <div>
+  <div class="photo-wrapper">
+  <img src="photo-creative.jpg" alt="Михаил Боргояков" class="profile-photo" />
+</div>
     <h1 style="margin: 0;">Михаил Боргояков</h1>
     <p style="margin-top: 10px; color: var(--text-color);">Креативный дизайнер / Моушн / 3D / Веб</p>
   </div>
@@ -279,8 +299,9 @@
   <!-- ИНЖЕНЕР -->
 <div id="engineer-resume" style="display: none;">
   <header class="card" data-aos="fade-down" style="display: flex; align-items: center; gap: 20px; max-width: 960px; margin: 60px auto 40px;">
-    <img src="photo-engineer.jpg" alt="Михаил Боргояков" style="width: 120px; height: 120px; border-radius: 12px; object-fit: cover;" />
-    <div>
+    <div class="photo-wrapper">
+  <img src="photo-engineer.jpg" alt="Михаил Боргояков" class="profile-photo" />
+</div>
       <h1 style="margin: 0;">Михаил Боргояков</h1>
       <p style="margin-top: 10px; color: var(--text-color);">Сервисный инженер / Москва</p>
     </div>
