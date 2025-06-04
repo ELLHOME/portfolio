@@ -277,6 +277,19 @@
     font-size: 13px;
     padding: 5px 10px;
   }
+ .resume-section {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: all;
+}
+
+.resume-hidden {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  position: absolute;
+}
 }
   </style>
   <link
@@ -423,7 +436,7 @@
       <div style="margin-bottom: 20px;">
         <h3>2023 — н.в. Промгеосервис</h3>
         <ul>
-          <li>Запуск 10 интерферометрических радаров</li>
+          <li>Запуск 10+ интерферометрических радаров</li>
           <li>Построение системы клиентской поддержки</li>
           <li>Разработка сайтов и маркетинговых материалов</li>
         </ul>
@@ -477,7 +490,7 @@
       <div>
         <h3>2006 — 2015 Brunswick</h3>
         <ul>
-          <li>170 запусков боулинг-клубов в РФ и СНГ</li>
+          <li>170+ запусков боулинг-клубов в РФ и СНГ</li>
           <li>Настройка ПО, обучение персонала</li>
           <li>Участие в международных проектах</li>
         </ul>
@@ -526,19 +539,27 @@
     });
 
     function toggleResume() {
-  const creative = document.getElementById('creative-resume');
-  const engineer = document.getElementById('engineer-resume');
-  const isCreativeVisible = creative.style.display !== 'none';
+const creative = document.getElementById('creative-resume');
+const engineer = document.getElementById('engineer-resume');
 
-  creative.style.display = isCreativeVisible ? 'none' : '';
-  engineer.style.display = isCreativeVisible ? '' : 'none';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+const isCreativeVisible = !creative.classList.contains('resume-hidden');
 
-  const sound = document.getElementById('resume-sound');
-  if (sound) {
-    sound.currentTime = 0;
-    sound.play();
-  }
+if (isCreativeVisible) {
+  creative.classList.add('resume-hidden');
+  engineer.classList.remove('resume-hidden');
+} else {
+  creative.classList.remove('resume-hidden');
+  engineer.classList.add('resume-hidden');
+}
+
+window.scrollTo({ top: 0, behavior: 'smooth' });
+
+const sound = document.getElementById('resume-sound');
+if (sound) {
+  sound.currentTime = 0;
+  sound.play();
+}
+
 }
   </script>
   <script>
