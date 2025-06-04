@@ -193,6 +193,52 @@
 .photo-wrapper:hover .profile-photo {
   transform: scale(1.1);
 }
+@media (max-width: 600px) {
+  header.card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .photo-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .section {
+    padding: 40px 15px;
+  }
+
+  .resume-toggle,
+  .theme-toggle {
+    right: 10px;
+    padding: 4px 10px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) {
+  .project-grid {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .project-preview,
+  .project-content {
+    max-width: 100%;
+  }
+
+  .project-preview img,
+  .project-preview video {
+    max-height: none;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
   </style>
   <link
   rel="stylesheet"
