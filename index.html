@@ -279,6 +279,21 @@
     font-size: 13px;
     padding: 5px 10px;
   }
+  .resume-section {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.resume-hidden {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
 }
 
   </style>
@@ -295,7 +310,7 @@
 </div>
 
   <!-- КРЕАТИВЩИК -->
-  <div id="creative-resume">
+  <div id="creative-resume"> class="resume-section">
     <header class="card" data-aos="fade-down" style="display: flex; align-items: center; gap: 20px; max-width: 960px; margin: 60px auto 40px;">
   <div class="photo-wrapper">
   <img src="photo.jpg" alt="Михаил Боргояков" class="profile-photo" />
@@ -388,7 +403,7 @@
   </div>
 
   <!-- ИНЖЕНЕР -->
-<div id="engineer-resume" style="display: none;">
+<div id="engineer-resume" class="resume-section resume-hidden">
   <header class="card" data-aos="fade-down" style="display: flex; align-items: center; gap: 20px; max-width: 960px; margin: 60px auto 40px;">
     <div class="photo-wrapper">
   <img src="photo-engineer.jpg" alt="Михаил Боргояков" class="profile-photo" />
@@ -531,10 +546,17 @@
     function toggleResume() {
   const creative = document.getElementById('creative-resume');
   const engineer = document.getElementById('engineer-resume');
-  const isCreativeVisible = creative.style.display !== 'none';
 
-  creative.style.display = isCreativeVisible ? 'none' : '';
-  engineer.style.display = isCreativeVisible ? '' : 'none';
+  const isCreativeVisible = !creative.classList.contains('resume-hidden');
+
+  if (isCreativeVisible) {
+    creative.classList.add('resume-hidden');
+    engineer.classList.remove('resume-hidden');
+  } else {
+    creative.classList.remove('resume-hidden');
+    engineer.classList.add('resume-hidden');
+  }
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
   const sound = document.getElementById('resume-sound');
@@ -543,6 +565,7 @@
     sound.play();
   }
 }
+
   </script>
   <script>
   function initMap() {
