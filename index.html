@@ -272,13 +272,7 @@
     transform: translateX(-50%);
     flex-direction: row;
     gap: 10px;
-  }
-
-  .theme-toggle,
-  .resume-toggle {
-    font-size: 13px;
-    padding: 5px 10px;
-  }
+}
 @media (min-width: 601px) {
   .button-bar {
     position: fixed;
@@ -290,7 +284,14 @@
     flex-direction: column;
     gap: 10px;
     align-items: flex-end;
+}
+
+  .theme-toggle,
+  .resume-toggle {
+    font-size: 13px;
+    padding: 5px 10px;
   }
+
 }
 
   </style>
@@ -303,7 +304,7 @@
 <body>
   <div class="button-bar">
   <button class="theme-toggle">Сменить тему</button>
-  <button class="resume-toggle" onclick="toggleResume()">Другие навыки</button>
+  <button class="resume-toggle" onclick="toggleResume()">Сменить резюме</button>
 </div>
 
   <!-- КРЕАТИВЩИК -->
