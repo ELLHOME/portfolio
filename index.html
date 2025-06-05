@@ -575,5 +575,28 @@
 </script>
 <audio id="theme-sound" src="toggle.mp3" preload="auto"></audio>
 <audio id="resume-sound" src="switch.mp3" preload="auto"></audio>
+<script>
+  function toggleResume() {
+    const creative = document.getElementById("creative-resume");
+    const engineer = document.getElementById("engineer-resume");
+    const btn = document.querySelector(".resume-toggle");
+
+    if (creative.style.display === "none") {
+      creative.style.display = "block";
+      engineer.style.display = "none";
+      btn.textContent = "Другое резюме";
+    } else {
+      creative.style.display = "none";
+      engineer.style.display = "block";
+      btn.textContent = "Назад";
+    }
+  }
+
+  // Тема
+  const themeToggle = document.querySelector(".theme-toggle");
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("light");
+  });
+</script>
 </body>
 </html>
