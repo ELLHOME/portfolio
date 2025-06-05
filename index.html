@@ -245,8 +245,6 @@
   z-index: 9999;
   right: 20px;
   top: 20px;
-  left: auto;                
-  transform: none;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -264,7 +262,15 @@
   background-color: rgba(0,0,0,0.6);
   backdrop-filter: blur(4px);
 }
-
+.button-bar {
+  position: fixed;
+  z-index: 9999;
+  right: 20px;
+  top: 20px;
+  display: flex;
+  flex-direction: column; /* вот этого не хватает! */
+  gap: 10px;
+}
 @media (max-width: 600px) {
   .button-bar {
     top: 10px;
@@ -279,7 +285,25 @@
     font-size: 13px;
     padding: 5px 10px;
   }
+@media (min-width: 601px) {
+  .button-bar {
+    right: 20px;
+    left: auto;
+    top: 20px;
+    transform: none;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .theme-toggle,
+  .resume-toggle {
+    position: relative;
+    right: auto;
+    left: auto;
+    transform: none;
+  }
 }
+
   </style>
   <link
   rel="stylesheet"
@@ -290,7 +314,7 @@
 <body>
   <div class="button-bar">
   <button class="theme-toggle">Сменить тему</button>
-  <button class="resume-toggle" onclick="toggleResume()">Сменить резюме</button>
+  <button class="resume-toggle" onclick="toggleResume()">Другое резюме</button>
 </div>
 
   <!-- КРЕАТИВЩИК -->
@@ -425,7 +449,7 @@
       <div style="margin-bottom: 20px;">
         <h3>2023 — н.в. Промгеосервис</h3>
         <ul>
-          <li>Запуск 10+ интерферометрических радаров</li>
+          <li>Запуск 10 интерферометрических радаров</li>
           <li>Построение системы клиентской поддержки</li>
           <li>Разработка сайтов и маркетинговых материалов</li>
         </ul>
@@ -479,7 +503,7 @@
       <div>
         <h3>2006 — 2015 Brunswick</h3>
         <ul>
-          <li>170+ запусков боулинг-клубов в РФ и СНГ</li>
+          <li>170 запусков боулинг-клубов в РФ и СНГ</li>
           <li>Настройка ПО, обучение персонала</li>
           <li>Участие в международных проектах</li>
         </ul>
