@@ -262,7 +262,15 @@
   background-color: rgba(0,0,0,0.6);
   backdrop-filter: blur(4px);
 }
-
+.button-bar {
+  position: fixed;
+  z-index: 9999;
+  right: 20px;
+  top: 20px;
+  display: flex;
+  flex-direction: column; /* вот этого не хватает! */
+  gap: 10px;
+}
 @media (max-width: 600px) {
   .button-bar {
     top: 10px;
