@@ -239,6 +239,18 @@
   html, body {
   max-width: 100%;
   overflow-x: hidden;
+}
+.button-bar {
+  position: fixed;
+  z-index: 9999;
+  right: 20px;
+  top: 20px;
+  left: auto;                
+  transform: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
 .theme-toggle,
 .resume-toggle {
@@ -252,31 +264,34 @@
   background-color: rgba(0,0,0,0.6);
   backdrop-filter: blur(4px);
 }
-.button-bar {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;  /* вертикальное расположение */
-  gap: 10px;
-  z-index: 9999;
-  align-items: flex-end; /* чтобы кнопки выравнивались по правому краю */
-}
 
-/* Мобильная версия — кнопки по центру и горизонтально */
 @media (max-width: 600px) {
   .button-bar {
     top: 10px;
     left: 50%;
-    right: auto;
     transform: translateX(-50%);
-    flex-direction: row; /* горизонтально */
+    flex-direction: row;
     gap: 10px;
-    align-items: center;
+  }
+
+  .theme-toggle,
+  .resume-toggle {
+    font-size: 13px;
+    padding: 5px 10px;
+  }
+@media (min-width: 601px) {
+  .button-bar {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    left: auto;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
   }
 }
-
-
 
   </style>
   <link
