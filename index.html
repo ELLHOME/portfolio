@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Михаил Боргояков — Резюме</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Михаил Боргояков — Резюме</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<style>
     :root {
       --bg-color: #0f1117;
       --text-color: #f4f4f4;
@@ -33,25 +34,8 @@
       transition: background 0.3s, color 0.3s;
     }
 
-    .theme-toggle,
-.resume-toggle {
-  border: 2px solid var(--text-color);
-  color: var(--text-color);
-  padding: 6px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-}
 
-    .theme-toggle {
-      top: 20px;
-    }
 
-    .resume-toggle {
-      top: 60px;
-    }
 
     header {
       text-align: center;
@@ -206,12 +190,6 @@
     padding: 40px 15px;
   }
 
-  .resume-toggle,
-  .theme-toggle {
-    right: 10px;
-    padding: 4px 10px;
-    font-size: 14px;
-  }
 }
 @media (max-width: 768px) {
   .project-grid {
@@ -240,6 +218,14 @@
   max-width: 100%;
   overflow-x: hidden;
 }
+
+
+
+@media (max-width: 600px) {
+
+}
+
+  
 
 .button-bar {
   position: fixed;
@@ -281,224 +267,195 @@
     padding: 5px 10px;
   }
 }
-
-  </style>
-  <link
-  rel="stylesheet"
-  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-/>
+</style>
+<link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-</head>
+</link></link></head>
 <body>
-  <div class="button-bar">
-  <button class="theme-toggle">Сменить тему</button>
-  <button class="resume-toggle" onclick="toggleResume()">Сменить резюме</button>
+<div class="button-bar">
+<button class="theme-toggle">Сменить тему</button>
+<button class="resume-toggle" onclick="toggleResume()">Сменить резюме</button>
 </div>
-
-  <!-- КРЕАТИВЩИК -->
-  <div id="creative-resume">
-    <header class="card" data-aos="fade-down" style="display: flex; align-items: center; gap: 20px; max-width: 960px; margin: 60px auto 40px;">
-  <div class="photo-wrapper">
-  <img src="photo.jpg" alt="Михаил Боргояков" class="profile-photo" />
+<!-- КРЕАТИВЩИК -->
+<div id="creative-resume">
+<header class="card" data-aos="fade-down" style="display: flex; align-items: center; gap: 20px; max-width: 960px; margin: 60px auto 40px;">
+<div class="photo-wrapper">
+<img alt="Михаил Боргояков" class="profile-photo" src="photo.jpg"/>
 </div>
 <div>
-    <h1 style="margin: 0;">Михаил Боргояков</h1>
-    <p style="margin-top: 10px; color: var(--text-color);">Креативный дизайнер / Моушн / 3D / Веб</p>
-  </div>
+<h1 style="margin: 0;">Михаил Боргояков</h1>
+<p style="margin-top: 10px; color: var(--text-color);">Креативный дизайнер / Моушн / 3D / Веб</p>
+</div>
 </header>
-
-
-    <section class="section" data-aos="fade-up">
-      <h2>Обо мне</h2>
-      <div class="card">
-        <p>Креативный специалист с инженерным мышлением. Создаю визуальные решения для бизнеса: от сайтов до 3D-анимации. Балансирую эстетику, смысл и бизнес-цели. Использую современные инструменты и нейросети.</p>
-      </div>
-    </section>
-
-    <section class="section" data-aos="fade-up">
-      <h2>Проекты</h2>
-
-      <div class="card project-grid">
-        <div class="project-preview" data-aos="fade-right">
-          <img src="превью сайта.jpg" alt="B2B сайты">
-        </div>
-        <div class="project-content" data-aos="fade-left">
-          <h3>Сайты для B2B-компаний</h3>
-          <ul>
-            <li><a href="https://monterra.ru" target="_blank">monterra.ru</a></li>
-            <li><a href="https://promgeoservice.ru" target="_blank">promgeoservice.ru</a></li>
-            <li><a href="https://smartnetrtk.ru" target="_blank">smartnetrtk.ru</a></li>
-          </ul>
-          <p>Дизайн, структура, контент, Tilda + графика + нейросети.</p>
-        </div>
-      </div>
-
-      <div class="card project-grid">
-        <div class="project-preview logo-carousel" data-aos="fade-right">
-          <img src="логотип.png" alt="Логотип 1" class="active-logo">
-          <img src="логотип 1.png" alt="Логотип 2">
-          <img src="логотип 2.png" alt="Логотип">
-        </div>
-        <div class="project-content" data-aos="fade-left">
-          <h3>Айдентика: логотипы для холдинга</h3>
-          <p>Разработка визуального стиля и логотипов с нуля. Анализ, концепция, реализация.</p>
-        </div>
-      </div>
-
-      <div class="card project-grid">
-        <div class="project-preview" data-aos="fade-right">
-          <video autoplay muted loop playsinline poster="стопкадр.png" style="width: 100%; border-radius: 12px;">
-            <source src="лого для вентеля.mp4" type="video/mp4">
+<section class="section" data-aos="fade-up">
+<h2>Обо мне</h2>
+<div class="card">
+<p>Креативный специалист с инженерным мышлением. Создаю визуальные решения для бизнеса: от сайтов до 3D-анимации. Балансирую эстетику, смысл и бизнес-цели. Использую современные инструменты и нейросети.</p>
+</div>
+</section>
+<section class="section" data-aos="fade-up">
+<h2>Проекты</h2>
+<div class="card project-grid">
+<div class="project-preview" data-aos="fade-right">
+<img alt="B2B сайты" src="превью сайта.jpg"/>
+</div>
+<div class="project-content" data-aos="fade-left">
+<h3>Сайты для B2B-компаний</h3>
+<ul>
+<li><a href="https://monterra.ru" target="_blank">monterra.ru</a></li>
+<li><a href="https://promgeoservice.ru" target="_blank">promgeoservice.ru</a></li>
+<li><a href="https://smartnetrtk.ru" target="_blank">smartnetrtk.ru</a></li>
+</ul>
+<p>Дизайн, структура, контент, Tilda + графика + нейросети.</p>
+</div>
+</div>
+<div class="card project-grid">
+<div class="project-preview logo-carousel" data-aos="fade-right">
+<img alt="Логотип 1" class="active-logo" src="логотип.png"/>
+<img alt="Логотип 2" src="логотип 1.png"/>
+<img alt="Логотип" src="логотип 2.png"/>
+</div>
+<div class="project-content" data-aos="fade-left">
+<h3>Айдентика: логотипы для холдинга</h3>
+<p>Разработка визуального стиля и логотипов с нуля. Анализ, концепция, реализация.</p>
+</div>
+</div>
+<div class="card project-grid">
+<div class="project-preview" data-aos="fade-right">
+<video autoplay="" loop="" muted="" playsinline="" poster="стопкадр.png" style="width: 100%; border-radius: 12px;">
+<source src="лого для вентеля.mp4" type="video/mp4"/>
             Ваш браузер не поддерживает тег video.
           </video>
-        </div>
-        <div class="project-content" data-aos="fade-left">
-          <h3>3D-вентилятор с голограммой</h3>
-          <p>Анимация в Cinema 4D + After Effects. Для выставки.</p>
-        </div>
-      </div>
-
-      <div class="card project-grid">
-        <div class="project-preview" data-aos="fade-right">
-          <img src="превью роллап.png" alt="Роллап для радара СКАЛА">
-        </div>
-        <div class="project-content" data-aos="fade-left">
-          <h3>Роллапы для выставки</h3>
-          <p>Графика для стенда, ключевые ТТХ, печатный макет.</p>
-        </div>
-      </div>
-
-    </section>
-
-    <section class="section" data-aos="fade-up">
-      <h2>Инструменты и нейросети</h2>
-      <div class="card">
-        <ul>
-          <li>After Effects, Photoshop, Illustrator</li>
-          <li>Cinema 4D + Redshift</li>
-          <li>Tilda, Figma</li>
-          <li>Midjourney, Stable Diffusion, ComfyUI, ChatGPT</li>
-          <li>Kling, Runway, Veo</li>
-        </ul>
-      </div>
-    </section>
-
-    <footer>
+</div>
+<div class="project-content" data-aos="fade-left">
+<h3>3D-вентилятор с голограммой</h3>
+<p>Анимация в Cinema 4D + After Effects. Для выставки.</p>
+</div>
+</div>
+<div class="card project-grid">
+<div class="project-preview" data-aos="fade-right">
+<img alt="Роллап для радара СКАЛА" src="превью роллап.png"/>
+</div>
+<div class="project-content" data-aos="fade-left">
+<h3>Роллапы для выставки</h3>
+<p>Графика для стенда, ключевые ТТХ, печатный макет.</p>
+</div>
+</div>
+</section>
+<section class="section" data-aos="fade-up">
+<h2>Инструменты и нейросети</h2>
+<div class="card">
+<ul>
+<li>After Effects, Photoshop, Illustrator</li>
+<li>Cinema 4D + Redshift</li>
+<li>Tilda, Figma</li>
+<li>Midjourney, Stable Diffusion, ComfyUI, ChatGPT</li>
+<li>Kling, Runway, Veo</li>
+</ul>
+</div>
+</section>
+<footer>
       Связь: ellhome@yandex.ru / +7 (926) 519-27-77 / Москва
     </footer>
-  </div>
-
-  <!-- ИНЖЕНЕР -->
+</div>
+<!-- ИНЖЕНЕР -->
 <div id="engineer-resume" style="display: none;">
-  <header class="card" data-aos="fade-down" style="display: flex; align-items: center; gap: 20px; max-width: 960px; margin: 60px auto 40px;">
-    <div class="photo-wrapper">
-  <img src="photo-engineer.jpg" alt="Михаил Боргояков" class="profile-photo" />
+<header class="card" data-aos="fade-down" style="display: flex; align-items: center; gap: 20px; max-width: 960px; margin: 60px auto 40px;">
+<div class="photo-wrapper">
+<img alt="Михаил Боргояков" class="profile-photo" src="photo-engineer.jpg">
+</img></div>
+<div>
+<h1 style="margin: 0;">Михаил Боргояков</h1>
+<p style="margin-top: 10px; color: var(--text-color);">Сервисный инженер / Москва</p>
+</div>
+</header>
+<section class="section" data-aos="fade-left">
+<h2>Профиль</h2>
+<div class="card">
+<p>Сервисный инженер с 18 годами опыта в запуске, обслуживании и ремонте промышленного оборудования. Специализация: пусконаладка, обучение персонала, устранение технических сбоев. Надёжный специалист с опытом по всей России и за рубежом. Готов к командировкам и переезду.</p>
+</div>
+</section>
+<section class="section" data-aos="fade-left">
+<h2>Ключевые достижения</h2>
+<div class="card">
+<ul>
+<li>170 успешных запусков объектов в России и СНГ (оборудование Brunswick)</li>
+<li>Сократил время обслуживания на 30% в Home Robot</li>
+<li>Обеспечил SLA 99.8% в Шереметьево (система багажа)</li>
+<li>Организовал сервисную службу с нуля: закупка, найм, обучение</li>
+<li>Пуск радаров и климатических систем с поддержкой 24/7</li>
+</ul>
+</div>
+</section>
+<section class="section" data-aos="fade-left">
+<h2>Опыт по годам</h2>
+<div class="card">
+<div style="border-left: 3px solid var(--accent-color); padding-left: 20px;">
+<div style="margin-bottom: 20px;">
+<h3>2023 — н.в. Промгеосервис</h3>
+<ul>
+<li>Запуск 10+ интерферометрических радаров</li>
+<li>Построение системы клиентской поддержки</li>
+<li>Разработка сайтов и маркетинговых материалов</li>
+</ul>
+</div>
+<div style="margin-bottom: 20px;">
+<h3>2022 Hexagon / IDS</h3>
+<ul>
+<li>Пусконаладка георадаров</li>
+<li>Разработка регламентов и обслуживание</li>
+<li>Промо-кампании, рост целевых обращений на 30%</li>
+</ul>
+</div>
+<div style="margin-bottom: 20px;">
+<h3>2021 — 2022 Autotherm.de</h3>
+<ul>
+<li>Пищевое климатическое оборудование</li>
+<li>Обучение персонала</li>
+<li>Работа с инженерами из Германии</li>
+</ul>
+</div>
+<div style="margin-bottom: 20px;">
+<h3>2020 — 2021 Home Robot</h3>
+<ul>
+<li>Создание сервисного центра и склада ЗИП с нуля</li>
+<li>Оптимизация процессов, сокращение сроков ремонта вдвое</li>
+<li>Внедрение охранных систем и логистики</li>
+</ul>
+</div>
+<div style="margin-bottom: 20px;">
+<h3>2018 — 2020 Vanderlande</h3>
+<ul>
+<li>Обслуживание багажеобрабатывающей системы в Шереметьево</li>
+<li>Управление сменой из 12 техников</li>
+<li>Документация, SLA 99.8%</li>
+</ul>
+</div>
+<div style="margin-bottom: 20px;">
+<h3>2015 — 2018 Вендинг Лаборатория</h3>
+<ul>
+<li>Руководство проектами автоматизации</li>
+<li>Управление технической командой</li>
+<li>Оптимизация производственных процессов</li>
+</ul>
 </div>
 <div>
-      <h1 style="margin: 0;">Михаил Боргояков</h1>
-      <p style="margin-top: 10px; color: var(--text-color);">Сервисный инженер / Москва</p>
-    </div>
-  </header>
-
-  <section class="section" data-aos="fade-left">
-    <h2>Профиль</h2>
-    <div class="card">
-      <p>Сервисный инженер с 18 годами опыта в запуске, обслуживании и ремонте промышленного оборудования. Специализация: пусконаладка, обучение персонала, устранение технических сбоев. Надёжный специалист с опытом по всей России и за рубежом. Готов к командировкам и переезду.</p>
-    </div>
-  </section>
-
-  <section class="section" data-aos="fade-left">
-    <h2>Ключевые достижения</h2>
-    <div class="card">
-      <ul>
-        <li>170 успешных запусков объектов в России и СНГ (оборудование Brunswick)</li>
-        <li>Сократил время обслуживания на 30% в Home Robot</li>
-        <li>Обеспечил SLA 99.8% в Шереметьево (система багажа)</li>
-        <li>Организовал сервисную службу с нуля: закупка, найм, обучение</li>
-        <li>Пуск радаров и климатических систем с поддержкой 24/7</li>
-      </ul>
-    </div>
-  </section>
-
-<section class="section" data-aos="fade-left">
-  <h2>Опыт по годам</h2>
-  <div class="card">
-    <div style="border-left: 3px solid var(--accent-color); padding-left: 20px;">
-      <div style="margin-bottom: 20px;">
-        <h3>2023 — н.в. Промгеосервис</h3>
-        <ul>
-          <li>Запуск 10+ интерферометрических радаров</li>
-          <li>Построение системы клиентской поддержки</li>
-          <li>Разработка сайтов и маркетинговых материалов</li>
-        </ul>
-      </div>
-
-      <div style="margin-bottom: 20px;">
-        <h3>2022 Hexagon / IDS</h3>
-        <ul>
-          <li>Пусконаладка георадаров</li>
-          <li>Разработка регламентов и обслуживание</li>
-          <li>Промо-кампании, рост целевых обращений на 30%</li>
-        </ul>
-      </div>
-
-      <div style="margin-bottom: 20px;">
-        <h3>2021 — 2022 Autotherm.de</h3>
-        <ul>
-          <li>Пищевое климатическое оборудование</li>
-          <li>Обучение персонала</li>
-          <li>Работа с инженерами из Германии</li>
-        </ul>
-      </div>
-
-      <div style="margin-bottom: 20px;">
-        <h3>2020 — 2021 Home Robot</h3>
-        <ul>
-          <li>Создание сервисного центра и склада ЗИП с нуля</li>
-          <li>Оптимизация процессов, сокращение сроков ремонта вдвое</li>
-          <li>Внедрение охранных систем и логистики</li>
-        </ul>
-      </div>
-
-      <div style="margin-bottom: 20px;">
-        <h3>2018 — 2020 Vanderlande</h3>
-        <ul>
-          <li>Обслуживание багажеобрабатывающей системы в Шереметьево</li>
-          <li>Управление сменой из 12 техников</li>
-          <li>Документация, SLA 99.8%</li>
-        </ul>
-      </div>
-
-      <div style="margin-bottom: 20px;">
-        <h3>2015 — 2018 Вендинг Лаборатория</h3>
-        <ul>
-          <li>Руководство проектами автоматизации</li>
-          <li>Управление технической командой</li>
-          <li>Оптимизация производственных процессов</li>
-        </ul>
-      </div>
-
-      <div>
-        <h3>2006 — 2015 Brunswick</h3>
-        <ul>
-          <li>170+ запусков боулинг-клубов в РФ и СНГ</li>
-          <li>Настройка ПО, обучение персонала</li>
-          <li>Участие в международных проектах</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<h3>2006 — 2015 Brunswick</h3>
+<ul>
+<li>170+ запусков боулинг-клубов в РФ и СНГ</li>
+<li>Настройка ПО, обучение персонала</li>
+<li>Участие в международных проектах</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
-
-
-  <footer>
+<footer>
     Связь: ellhome@yandex.ru / +7 (926) 519-27-77 / Москва
   </footer>
 </div>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
     AOS.init();
 
     document.addEventListener('DOMContentLoaded', function () {
@@ -545,7 +502,7 @@
   }
 }
   </script>
-  <script>
+<script>
   function initMap() {
     const map = L.map("map").setView([55.7558, 37.6176], 4); // Центр — Москва
 
@@ -581,7 +538,7 @@
     initMap();
   });
 </script>
-<audio id="theme-sound" src="toggle.mp3" preload="auto"></audio>
-<audio id="resume-sound" src="switch.mp3" preload="auto"></audio>
+<audio id="theme-sound" preload="auto" src="toggle.mp3"></audio>
+<audio id="resume-sound" preload="auto" src="switch.mp3"></audio>
 </body>
 </html>
