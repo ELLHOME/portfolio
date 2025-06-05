@@ -591,6 +591,11 @@
       engineer.style.display = "block";
       btn.textContent = "Назад";
     }
+	const audio = document.getElementById("resume-sound");
+  if (audio) {
+    audio.currentTime = 0;
+    audio.play().catch(e => console.log("Автовоспроизведение не разрешено", e));
+  }
   }
 
   // Тема
