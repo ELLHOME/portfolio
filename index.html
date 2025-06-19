@@ -16,12 +16,19 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: var(--text); background: #fdfdfd; }
-    header { background: var(--red); color: var(--white); padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }
+    header {
+  background: var(--white);
+  color: var(--text);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* лёгкая тень, чтобы не сливалось */}
     header img { height: 100px;
     width: auto;
 	}
-    nav a { color: var(--white); margin-left: 20px; text-decoration: none; font-weight: 500; }
-    nav a:hover { color: var(--white); text-decoration: underline; transition: 0.3s; }
+    nav a { color: var(--text); margin-left: 20px; text-decoration: none; font-weight: 500; }
+    nav a:hover { color: var(--red); text-decoration: underline; transition: 0.3s; }
     .intro {
       background: linear-gradient(135deg, #e63946 0%, #b71c2a 100%);
       color: var(--white);
