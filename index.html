@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KGRPRO — Комплексные Геотехнические Решения</title>
+  <title>КГР — Комплексные Геотехнические Решения</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a2e0e6f91e.js" crossorigin="anonymous"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: #1a1a1a; background: #f8f9fb; }
@@ -16,18 +17,24 @@
     .intro p { font-size: 18px; }
     section { padding: 60px 40px; max-width: 1200px; margin: 0 auto; }
     h3 { font-size: 28px; margin-bottom: 20px; color: #003366; }
-    .services ul, .projects ul, .testimonials ul, .tools ul, .blog ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; padding: 0; }
-    .services li, .projects li, .testimonials li, .tools li, .blog li { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
+    .filters { margin-bottom: 30px; text-align: center; }
+    .filters button { background: #003366; color: white; border: none; padding: 10px 20px; margin: 5px; border-radius: 5px; cursor: pointer; transition: 0.3s; }
+    .filters button:hover { background: #0055a5; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.05); transition: 0.3s; }
+    .card i { font-size: 24px; margin-bottom: 10px; color: #0055a5; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
     form { display: flex; flex-direction: column; gap: 10px; max-width: 500px; }
     input, textarea, button { padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc; }
-    button { background: #003366; color: white; border: none; cursor: pointer; transition: 0.3s; }
-    button:hover { background: #0055a5; }
+    button[type="submit"] { background: #003366; color: white; border: none; cursor: pointer; transition: 0.3s; }
+    button[type="submit"]:hover { background: #0055a5; }
     footer { background: #003366; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+    .hidden { display: none; }
   </style>
 </head>
 <body>
   <header>
-    <h1>KGRPRO</h1>
+    <h1>КГР</h1>
     <nav>
       <a href="#about">О нас</a>
       <a href="#services">Услуги</a>
@@ -44,60 +51,40 @@
     <p>Изучаем грунт — создаём прочное будущее</p>
   </div>
 
-  <section id="about">
-    <h3>О компании</h3>
-    <p>KGRPRO — команда инженеров и учёных, предоставляющая полный спектр услуг в области инженерной геологии, гидрогеологии и мониторинга. Наши решения основаны на научном подходе и поддержке Горного университета.</p>
-  </section>
-
-  <section id="services" class="services">
+  <section id="services">
     <h3>Услуги</h3>
-    <ul>
-      <li>Инженерно-геологические изыскания</li>
-      <li>Гидрогеологические исследования</li>
-      <li>Лабораторные анализы грунтов</li>
-      <li>Мониторинг подземных вод</li>
-      <li>GNSS-наблюдения и осадочные процессы</li>
-      <li>Геотехническое моделирование</li>
-    </ul>
+    <div class="filters">
+      <button onclick="filterCards('all')">Все</button>
+      <button onclick="filterCards('field')">Полевые</button>
+      <button onclick="filterCards('model')">Моделирование</button>
+      <button onclick="filterCards('analysis')">Анализ</button>
+    </div>
+    <div class="card-grid">
+      <div class="card field"><i class="fas fa-mountain"></i> Инженерно-геологическое и гидрогеологическое обеспечение</div>
+      <div class="card analysis"><i class="fas fa-search"></i> Анализ и систематизация имеющихся материалов</div>
+      <div class="card analysis"><i class="fas fa-flask"></i> Программа лабораторных испытаний горных пород</div>
+      <div class="card field"><i class="fas fa-map-marker-alt"></i> Расположение инженерно-геологических скважин</div>
+      <div class="card model"><i class="fas fa-cubes"></i> Геолого-структурная модель</div>
+      <div class="card model"><i class="fas fa-water"></i> Геофильтрационная модель</div>
+      <div class="card model"><i class="fas fa-layer-group"></i> Геомеханическая модель</div>
+      <div class="card field"><i class="fas fa-helmet-safety"></i> Выполнение полевых исследований</div>
+      <div class="card analysis"><i class="fas fa-binoculars"></i> Оперативная камеральная обработка</div>
+      <div class="card field"><i class="fas fa-eye"></i> Обследование откосов и отвалов</div>
+    </div>
   </section>
 
-  <section id="projects" class="projects">
-    <h3>Проекты</h3>
-    <ul>
-      <li>Объект А — Инженерные изыскания под ТЦ</li>
-      <li>Объект Б — Моделирование осадок на карьере</li>
-      <li>Объект В — Гидрогеология для жилого комплекса</li>
-      <li>Объект Г — GNSS-мониторинг в сложных условиях</li>
-    </ul>
-  </section>
-
-  <section id="testimonials" class="testimonials">
-    <h3>Отзывы клиентов</h3>
-    <ul>
-      <li>"Спасибо за качественные изыскания — проект прошёл экспертизу с первого раза!" — ООО «СтройПроект»</li>
-      <li>"Команда KGRPRO — настоящие профессионалы. Быстро, точно, с научным подходом." — ИП Ковалев</li>
-      <li>"Используем данные GNSS-мониторинга уже год — ни одного сбоя." — Технопарк Север</li>
-    </ul>
-  </section>
-
-  <section id="tools" class="tools">
-    <h3>Инструменты и технологии</h3>
-    <ul>
-      <li>GNSS-мониторинг Leica, Trimble</li>
-      <li>ПО: Leapfrog, Rocscience, GeoStudio</li>
-      <li>Геоинформационные системы (ArcGIS, QGIS)</li>
-      <li>Собственная лаборатория грунтов</li>
-    </ul>
-  </section>
-
-  <section id="blog" class="blog">
-    <h3>Новости и блог</h3>
-    <ul>
-      <li><strong>Июнь 2025:</strong> Завершены изыскания для нового жилого комплекса в СПб</li>
-      <li><strong>Май 2025:</strong> KGRPRO внедрил цифровую платформу для мониторинга</li>
-      <li><strong>Апрель 2025:</strong> Участие в форуме "Геотехника и будущее"</li>
-    </ul>
-  </section>
+  <script>
+    function filterCards(category) {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (category === 'all' || card.classList.contains(category)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+  </script>
 
   <section id="contact">
     <h3>Связаться с нами</h3>
@@ -110,7 +97,7 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 KGRPRO. Все права защищены.</p>
+    <p>&copy; 2025 КГР. Все права защищены.</p>
   </footer>
 </body>
 </html>
