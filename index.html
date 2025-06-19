@@ -1,544 +1,116 @@
 <!DOCTYPE html>
-
 <html lang="ru">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Михаил Боргояков — Резюме</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<style>
-    :root {
-      --bg-color: #0f1117;
-      --text-color: #f4f4f4;
-      --card-bg: #1a1d24;
-      --accent-color: #7ec4ff;
-    }
-
-    body.light {
-      --bg-color: #ffffff;
-      --text-color: #111;
-      --card-bg: #f4f4f4;
-      --accent-color: #0077cc;
-    }
-
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Manrope', sans-serif;
-      background: var(--bg-color);
-      color: var(--text-color);
-      scroll-behavior: smooth;
-      transition: background 0.3s, color 0.3s;
-    }
-
-
-
-
-    header {
-      text-align: center;
-      padding: 80px 20px 40px;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      color: #ccc;
-    }
-
-    .section {
-      padding: 60px 20px;
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 30px;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: 16px;
-      padding: 20px;
-      margin-bottom: 30px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .project-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .project-preview {
-      flex: 1 1 300px;
-      max-width: 200px;
-      transition: transform 0.3s ease;
-    }
-
-    .project-preview img,
-    .project-preview video {
-      max-height: 200px;
-      object-fit: cover;
-      object-position: center;
-      width: 100%;
-      border-radius: 12px;
-    }
-
-    .project-preview:hover {
-      transform: scale(1.03);
-    }
-
-    .project-content {
-      flex: 1 1 300px;
-    }
-
-    @media (max-width: 768px) {
-      .project-grid {
-        flex-direction: column;
-      }
-
-      .project-preview,
-      .project-content {
-        max-width: 100%;
-      }
-    }
-
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px;
-      font-size: 0.9rem;
-      color: #888;
-    }
-
-    .logo-carousel {
-      position: relative;
-      width: 100%;
-      height: 200px;
-      overflow: hidden;
-    }
-
-    .logo-carousel img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      border-radius: 12px;
-      opacity: 0;
-      transition: opacity 0.6s ease-in-out;
-    }
-
-    .logo-carousel img.active-logo {
-      opacity: 1;
-      z-index: 1;
-    }
-	.photo-wrapper {
-  overflow: hidden;
-  border-radius: 12px;
-  width: 120px;
-  height: 120px;
-  flex-shrink: 0;
-}
-
-.profile-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-  display: block;
-}
-
-.photo-wrapper:hover .profile-photo {
-  transform: scale(1.1);
-}
-@media (max-width: 600px) {
-  header.card {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .photo-wrapper {
-    margin-bottom: 20px;
-  }
-
-  .section {
-    padding: 40px 15px;
-  }
-
-}
-@media (max-width: 768px) {
-  .project-grid {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
-  }
-
-  .project-preview,
-  .project-content {
-    max-width: 100%;
-  }
-
-  .project-preview img,
-  .project-preview video {
-    max-height: none;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
-
-  .card {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  html, body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-
-
-@media (max-width: 600px) {
-
-}
-
-  
-
-.button-bar {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 9999;
-}
-
-.theme-toggle,
-.resume-toggle {
-  background: none;
-  border: 2px solid var(--text-color);
-  color: var(--text-color);
-  padding: 6px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  background-color: rgba(0,0,0,0.6);
-  backdrop-filter: blur(4px);
-}
-
-@media (max-width: 600px) {
-  .button-bar {
-    top: 10px;
-    left: 50%;
-    right: auto;
-    transform: translateX(-50%);
-    flex-direction: row;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .theme-toggle,
-  .resume-toggle {
-    font-size: 13px;
-    padding: 5px 10px;
-  }
-}
-</style>
-<link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-</link></link></head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KGRPRO — Комплексные Геотехнические Решения</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: #1a1a1a; background: #f8f9fb; }
+    header { background: #003366; color: white; padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }
+    header h1 { font-size: 24px; }
+    nav a { color: white; margin-left: 20px; text-decoration: none; font-weight: 500; }
+    .intro { background: #e5ecf3; padding: 100px 40px; text-align: center; }
+    .intro h2 { font-size: 36px; margin-bottom: 20px; }
+    .intro p { font-size: 18px; }
+    section { padding: 60px 40px; max-width: 1200px; margin: 0 auto; }
+    h3 { font-size: 28px; margin-bottom: 20px; color: #003366; }
+    .services ul, .projects ul, .testimonials ul, .tools ul, .blog ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; padding: 0; }
+    .services li, .projects li, .testimonials li, .tools li, .blog li { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.05); }
+    form { display: flex; flex-direction: column; gap: 10px; max-width: 500px; }
+    input, textarea, button { padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc; }
+    button { background: #003366; color: white; border: none; cursor: pointer; transition: 0.3s; }
+    button:hover { background: #0055a5; }
+    footer { background: #003366; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+  </style>
+</head>
 <body>
-<div class="button-bar">
-<button class="theme-toggle">Сменить тему</button>
-<button class="resume-toggle" onclick="toggleResume()">Сменить резюме</button>
-</div>
-<!-- КРЕАТИВЩИК -->
-<div id="creative-resume">
-<header class="card" data-aos="fade-down" style="display: flex; align-items: center; gap: 20px; max-width: 960px; margin: 60px auto 40px;">
-<div class="photo-wrapper">
-<img alt="Михаил Боргояков" class="profile-photo" src="photo.jpg"/>
-</div>
-<div>
-<h1 style="margin: 0;">Михаил Боргояков</h1>
-<p style="margin-top: 10px; color: var(--text-color);">Креативный дизайнер / Моушн / 3D / Веб</p>
-</div>
-</header>
-<section class="section" data-aos="fade-up">
-<h2>Обо мне</h2>
-<div class="card">
-<p>Креативный специалист с инженерным мышлением. Создаю визуальные решения для бизнеса: от сайтов до 3D-анимации. Балансирую эстетику, смысл и бизнес-цели. Использую современные инструменты и нейросети.</p>
-</div>
-</section>
-<section class="section" data-aos="fade-up">
-<h2>Проекты</h2>
-<div class="card project-grid">
-<div class="project-preview" data-aos="fade-right">
-<img alt="B2B сайты" src="превью сайта.jpg"/>
-</div>
-<div class="project-content" data-aos="fade-left">
-<h3>Сайты для B2B-компаний</h3>
-<ul>
-<li><a href="https://monterra.ru" target="_blank">monterra.ru</a></li>
-<li><a href="https://promgeoservice.ru" target="_blank">promgeoservice.ru</a></li>
-<li><a href="https://smartnetrtk.ru" target="_blank">smartnetrtk.ru</a></li>
-</ul>
-<p>Дизайн, структура, контент, Tilda + графика + нейросети.</p>
-</div>
-</div>
-<div class="card project-grid">
-<div class="project-preview logo-carousel" data-aos="fade-right">
-<img alt="Логотип 1" class="active-logo" src="логотип.png"/>
-<img alt="Логотип 2" src="логотип 1.png"/>
-<img alt="Логотип" src="логотип 2.png"/>
-</div>
-<div class="project-content" data-aos="fade-left">
-<h3>Айдентика: логотипы для холдинга</h3>
-<p>Разработка визуального стиля и логотипов с нуля. Анализ, концепция, реализация.</p>
-</div>
-</div>
-<div class="card project-grid">
-<div class="project-preview" data-aos="fade-right">
-<video autoplay="" loop="" muted="" playsinline="" poster="стопкадр.png" style="width: 100%; border-radius: 12px;">
-<source src="лого для вентеля.mp4" type="video/mp4"/>
-            Ваш браузер не поддерживает тег video.
-          </video>
-</div>
-<div class="project-content" data-aos="fade-left">
-<h3>3D-вентилятор с голограммой</h3>
-<p>Анимация в Cinema 4D + After Effects. Для выставки.</p>
-</div>
-</div>
-<div class="card project-grid">
-<div class="project-preview" data-aos="fade-right">
-<img alt="Роллап для радара СКАЛА" src="превью роллап.png"/>
-</div>
-<div class="project-content" data-aos="fade-left">
-<h3>Роллапы для выставки</h3>
-<p>Графика для стенда, ключевые ТТХ, печатный макет.</p>
-</div>
-</div>
-</section>
-<section class="section" data-aos="fade-up">
-<h2>Инструменты и нейросети</h2>
-<div class="card">
-<ul>
-<li>After Effects, Photoshop, Illustrator</li>
-<li>Cinema 4D + Redshift</li>
-<li>Tilda, Figma</li>
-<li>Midjourney, Stable Diffusion, ComfyUI, ChatGPT</li>
-<li>Kling, Runway, Veo</li>
-</ul>
-</div>
-</section>
-<footer>
-      Связь: ellhome@yandex.ru / +7 (926) 519-27-77 / Москва
-    </footer>
-</div>
-<!-- ИНЖЕНЕР -->
-<div id="engineer-resume" style="display: none;">
-<header class="card" data-aos="fade-down" style="display: flex; align-items: center; gap: 20px; max-width: 960px; margin: 60px auto 40px;">
-<div class="photo-wrapper">
-<img alt="Михаил Боргояков" class="profile-photo" src="photo-engineer.jpg">
-</img></div>
-<div>
-<h1 style="margin: 0;">Михаил Боргояков</h1>
-<p style="margin-top: 10px; color: var(--text-color);">Сервисный инженер / Москва</p>
-</div>
-</header>
-<section class="section" data-aos="fade-left">
-<h2>Профиль</h2>
-<div class="card">
-<p>Сервисный инженер с 18 годами опыта в запуске, обслуживании и ремонте промышленного оборудования. Специализация: пусконаладка, обучение персонала, устранение технических сбоев. Надёжный специалист с опытом по всей России и за рубежом. Готов к командировкам и переезду.</p>
-</div>
-</section>
-<section class="section" data-aos="fade-left">
-<h2>Ключевые достижения</h2>
-<div class="card">
-<ul>
-<li>170 успешных запусков объектов в России и СНГ (оборудование Brunswick)</li>
-<li>Сократил время обслуживания на 30% в Home Robot</li>
-<li>Обеспечил SLA 99.8% в Шереметьево (система багажа)</li>
-<li>Организовал сервисную службу с нуля: закупка, найм, обучение</li>
-<li>Пуск радаров и климатических систем с поддержкой 24/7</li>
-</ul>
-</div>
-</section>
-<section class="section" data-aos="fade-left">
-<h2>Опыт по годам</h2>
-<div class="card">
-<div style="border-left: 3px solid var(--accent-color); padding-left: 20px;">
-<div style="margin-bottom: 20px;">
-<h3>2023 — н.в. Промгеосервис</h3>
-<ul>
-<li>Запуск 10+ интерферометрических радаров</li>
-<li>Построение системы клиентской поддержки</li>
-<li>Разработка сайтов и маркетинговых материалов</li>
-</ul>
-</div>
-<div style="margin-bottom: 20px;">
-<h3>2022 Hexagon / IDS</h3>
-<ul>
-<li>Пусконаладка георадаров</li>
-<li>Разработка регламентов и обслуживание</li>
-<li>Промо-кампании, рост целевых обращений на 30%</li>
-</ul>
-</div>
-<div style="margin-bottom: 20px;">
-<h3>2021 — 2022 Autotherm.de</h3>
-<ul>
-<li>Пищевое климатическое оборудование</li>
-<li>Обучение персонала</li>
-<li>Работа с инженерами из Германии</li>
-</ul>
-</div>
-<div style="margin-bottom: 20px;">
-<h3>2020 — 2021 Home Robot</h3>
-<ul>
-<li>Создание сервисного центра и склада ЗИП с нуля</li>
-<li>Оптимизация процессов, сокращение сроков ремонта вдвое</li>
-<li>Внедрение охранных систем и логистики</li>
-</ul>
-</div>
-<div style="margin-bottom: 20px;">
-<h3>2018 — 2020 Vanderlande</h3>
-<ul>
-<li>Обслуживание багажеобрабатывающей системы в Шереметьево</li>
-<li>Управление сменой из 12 техников</li>
-<li>Документация, SLA 99.8%</li>
-</ul>
-</div>
-<div style="margin-bottom: 20px;">
-<h3>2015 — 2018 Вендинг Лаборатория</h3>
-<ul>
-<li>Руководство проектами автоматизации</li>
-<li>Управление технической командой</li>
-<li>Оптимизация производственных процессов</li>
-</ul>
-</div>
-<div>
-<h3>2006 — 2015 Brunswick</h3>
-<ul>
-<li>170+ запусков боулинг-клубов в РФ и СНГ</li>
-<li>Настройка ПО, обучение персонала</li>
-<li>Участие в международных проектах</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<footer>
-    Связь: ellhome@yandex.ru / +7 (926) 519-27-77 / Москва
+  <header>
+    <h1>KGRPRO</h1>
+    <nav>
+      <a href="#about">О нас</a>
+      <a href="#services">Услуги</a>
+      <a href="#projects">Проекты</a>
+      <a href="#testimonials">Отзывы</a>
+      <a href="#tools">Инструменты</a>
+      <a href="#blog">Блог</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+  </header>
+
+  <div class="intro">
+    <h2>Комплексные Геотехнические Решения</h2>
+    <p>Изучаем грунт — создаём прочное будущее</p>
+  </div>
+
+  <section id="about">
+    <h3>О компании</h3>
+    <p>KGRPRO — команда инженеров и учёных, предоставляющая полный спектр услуг в области инженерной геологии, гидрогеологии и мониторинга. Наши решения основаны на научном подходе и поддержке Горного университета.</p>
+  </section>
+
+  <section id="services" class="services">
+    <h3>Услуги</h3>
+    <ul>
+      <li>Инженерно-геологические изыскания</li>
+      <li>Гидрогеологические исследования</li>
+      <li>Лабораторные анализы грунтов</li>
+      <li>Мониторинг подземных вод</li>
+      <li>GNSS-наблюдения и осадочные процессы</li>
+      <li>Геотехническое моделирование</li>
+    </ul>
+  </section>
+
+  <section id="projects" class="projects">
+    <h3>Проекты</h3>
+    <ul>
+      <li>Объект А — Инженерные изыскания под ТЦ</li>
+      <li>Объект Б — Моделирование осадок на карьере</li>
+      <li>Объект В — Гидрогеология для жилого комплекса</li>
+      <li>Объект Г — GNSS-мониторинг в сложных условиях</li>
+    </ul>
+  </section>
+
+  <section id="testimonials" class="testimonials">
+    <h3>Отзывы клиентов</h3>
+    <ul>
+      <li>"Спасибо за качественные изыскания — проект прошёл экспертизу с первого раза!" — ООО «СтройПроект»</li>
+      <li>"Команда KGRPRO — настоящие профессионалы. Быстро, точно, с научным подходом." — ИП Ковалев</li>
+      <li>"Используем данные GNSS-мониторинга уже год — ни одного сбоя." — Технопарк Север</li>
+    </ul>
+  </section>
+
+  <section id="tools" class="tools">
+    <h3>Инструменты и технологии</h3>
+    <ul>
+      <li>GNSS-мониторинг Leica, Trimble</li>
+      <li>ПО: Leapfrog, Rocscience, GeoStudio</li>
+      <li>Геоинформационные системы (ArcGIS, QGIS)</li>
+      <li>Собственная лаборатория грунтов</li>
+    </ul>
+  </section>
+
+  <section id="blog" class="blog">
+    <h3>Новости и блог</h3>
+    <ul>
+      <li><strong>Июнь 2025:</strong> Завершены изыскания для нового жилого комплекса в СПб</li>
+      <li><strong>Май 2025:</strong> KGRPRO внедрил цифровую платформу для мониторинга</li>
+      <li><strong>Апрель 2025:</strong> Участие в форуме "Геотехника и будущее"</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h3>Связаться с нами</h3>
+    <form>
+      <input type="text" placeholder="Ваше имя" required />
+      <input type="email" placeholder="Email" required />
+      <textarea rows="5" placeholder="Ваше сообщение" required></textarea>
+      <button type="submit">Отправить</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 KGRPRO. Все права защищены.</p>
   </footer>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-    AOS.init();
-
-    document.addEventListener('DOMContentLoaded', function () {
-      const themeToggle = document.querySelector('.theme-toggle');
-      const currentTheme = localStorage.getItem('theme');
-      if (currentTheme === 'light') {
-        document.body.classList.add('light');
-      }
-      themeToggle.addEventListener('click', () => {
-  document.body.classList.toggle('light');
-  const theme = document.body.classList.contains('light') ? 'light' : 'dark';
-  localStorage.setItem('theme', theme);
-
-  const sound = document.getElementById('theme-sound');
-  if (sound) {
-    sound.currentTime = 0;
-    sound.play();
-  }
-});
-
-
-      const logos = document.querySelectorAll('.logo-carousel img');
-      let index = 0;
-      setInterval(() => {
-        logos[index].classList.remove('active-logo');
-        index = (index + 1) % logos.length;
-        logos[index].classList.add('active-logo');
-      }, 2500);
-    });
-
-    function toggleResume() {
-  const creative = document.getElementById('creative-resume');
-  const engineer = document.getElementById('engineer-resume');
-  const isCreativeVisible = creative.style.display !== 'none';
-
-  creative.style.display = isCreativeVisible ? 'none' : '';
-  engineer.style.display = isCreativeVisible ? '' : 'none';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-
-  const sound = document.getElementById('resume-sound');
-  if (sound) {
-    sound.currentTime = 0;
-    sound.play();
-  }
-}
-  </script>
-<script>
-  function initMap() {
-    const map = L.map("map").setView([55.7558, 37.6176], 4); // Центр — Москва
-
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 18,
-    }).addTo(map);
-
-    const locations = [
-      {
-        coords: [55.9726, 37.4146],
-        label: "Шереметьево – система багажа (Vanderlande)",
-      },
-      {
-        coords: [55.751244, 37.618423],
-        label: "Москва – Промгеосервис, Home Robot, ВЛ",
-      },
-      {
-        coords: [51.1694, 71.4491],
-        label: "Астана – запуск оборудования (Brunswick)",
-      },
-      {
-        coords: [50.4501, 30.5234],
-        label: "Киев – поддержка международных объектов",
-      },
-    ];
-
-    locations.forEach((loc) => {
-      L.marker(loc.coords).addTo(map).bindPopup(loc.label);
-    });
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    initMap();
-  });
-</script>
-<audio id="theme-sound" preload="auto" src="toggle.mp3"></audio>
-<audio id="resume-sound" preload="auto" src="switch.mp3"></audio>
 </body>
 </html>
