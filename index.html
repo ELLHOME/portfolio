@@ -14,21 +14,87 @@
       --text: #1a1a1a;
       --gray-shadow: rgba(0, 0, 0, 0.15);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Roboto', sans-serif; line-height: 1.6; color: var(--text); background: #fdfdfd; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: #fdfdfd;
+    }
     header {
-  background: var(--white);
-  color: var(--text);
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* лёгкая тень, чтобы не сливалось */}
-    header img { height: 100px;
-    width: auto;
-	}
-	nav a { color: var(--text); margin-left: 20px; text-decoration: none; font-weight: 500; }
-    nav a:hover { color: var(--red); text-decoration: underline; transition: 0.3s; }
+      background: var(--white);
+      color: var(--text);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+    header img {
+      height: 100px;
+      width: auto;
+    }
+
+    .burger {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    #mobile-menu {
+      display: flex;
+      gap: 20px;
+    }
+
+    #mobile-menu a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    #mobile-menu a:hover {
+      color: var(--red);
+      text-decoration: underline;
+      transition: 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .burger {
+        display: block;
+      }
+
+      #mobile-menu {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      #mobile-menu.show {
+        display: flex;
+      }
+
+      #mobile-menu a {
+        padding: 10px;
+        background: var(--red);
+        color: white;
+        border-radius: 5px;
+        text-align: center;
+      }
+    }
+
     .intro {
       background: linear-gradient(135deg, #e63946 0%, #b71c2a 100%);
       color: var(--white);
@@ -40,114 +106,186 @@
       background-position: center;
       background-repeat: no-repeat;
     }
-    .intro h2 { font-size: 36px; margin-bottom: 20px; animation: fadeInDown 1s ease; }
-    .intro p { font-size: 18px; animation: fadeInUp 1.2s ease; }
-    section { padding: 60px 40px; max-width: 1200px; margin: 0 auto; }
-    h3 { font-size: 28px; margin-bottom: 20px; color: var(--red-dark); }
-    .filters { margin-bottom: 30px; text-align: center; }
-    .filters button { background: var(--red); color: white; border: none; padding: 10px 20px; margin: 5px; border-radius: 5px; cursor: pointer; transition: 0.3s; }
-    .filters button:hover, .filters button.active { background: var(--red-dark); }
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; opacity: 0; transform: translateY(20px); }
-    .card i { font-size: 24px; margin-bottom: 10px; color: var(--red); display: block; }
-    .card:hover { transform: translateY(-8px); box-shadow: 0 6px 25px rgba(0,0,0,0.1); }
-    .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-    form { display: flex; flex-direction: column; gap: 10px; max-width: 500px; }
-    input, textarea, button { padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #ccc; }
-    button[type="submit"] { background: var(--red); color: white; border: none; cursor: pointer; transition: 0.3s; }
-    button[type="submit"]:hover { background: var(--red-dark); }
-    footer { background: var(--red); color: white; text-align: center; padding: 20px; margin-top: 40px; position: relative; }
-    footer::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: var(--red-dark); }
-    .hidden { display: none; }
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    .intro h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      animation: fadeInDown 1s ease;
     }
+
+    .intro p {
+      font-size: 18px;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    section {
+      padding: 60px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: var(--red-dark);
+    }
+
+    .filters {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .filters button {
+      background: var(--red);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .filters button:hover,
+    .filters button.active {
+      background: var(--red-dark);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    .card i {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: var(--red);
+      display: block;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 500px;
+    }
+
+    input,
+    textarea,
+    button {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button[type='submit'] {
+      background: var(--red);
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button[type='submit']:hover {
+      background: var(--red-dark);
+    }
+
+    footer {
+      background: var(--red);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: var(--red-dark);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-	@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-  }
-
-  header img {
-    margin-bottom: 10px;
-  }
-
-  #mobile-menu {
-  display: flex;
-  gap: 20px;
-}
-
-  nav a {
-    margin: 0;
-    padding: 5px 10px;
-    background: var(--red);
-    color: var(--white);
-    border-radius: 5px;
-    flex: 1 1 calc(50% - 10px);
-    text-align: center;
-  }
-}
-.burger {
-  display: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: var(--text);
-}
-
-@media (max-width: 768px) {
-  .burger {
-    display: block;
-  }
-
-  #mobile-menu {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    margin-top: 10px;
-  }
-
-  #mobile-menu.show {
-    display: flex;
-  }
-
-  nav a {
-    padding: 10px;
-    background: var(--red);
-    color: white;
-    border-radius: 5px;
-    text-align: center;
-  }
-}
-
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
-<header class="fade-in">
-   <img src="кгр 8.jpg" alt="КГР логотип">
-<div class="burger" onclick="toggleMenu()">☰</div>
-<nav id="mobile-menu">
-  <a href="#about">О нас</a>
-  <a href="#services">Услуги</a>
-  <a href="#projects">Проекты</a>
-  <a href="#testimonials">Отзывы</a>
-  <a href="#tools">Инструменты</a>
-  <a href="#blog">Блог</a>
-  <a href="#contact">Контакты</a>
-</nav>
+  <header class="fade-in">
+    <img src="кгр 8.jpg" alt="КГР логотип" />
+    <div class="burger" onclick="toggleMenu()">☰</div>
+    <nav id="mobile-menu">
+      <a href="#about">О нас</a>
+      <a href="#services">Услуги</a>
+      <a href="#projects">Проекты</a>
+      <a href="#testimonials">Отзывы</a>
+      <a href="#tools">Инструменты</a>
+      <a href="#blog">Блог</a>
+      <a href="#contact">Контакты</a>
+    </nav>
   </header>
 
   <div class="intro fade-in">
     <h2>Комплексные Геотехнические Решения</h2>
-    <p>Наши знания, опыт и техническая экспертиза помогут вам точно оценить риски и 
-	снизить издержки на всех этапах разведки и добычи полезных ископаемых. 
-	Мы работаем с проектами любой сложности и в любой точке России.</p>
+    <p>
+      Наши знания, опыт и техническая экспертиза помогут вам точно оценить риски и 
+      снизить издержки на всех этапах разведки и добычи полезных ископаемых. 
+      Мы работаем с проектами любой сложности и в любой точке России.
+    </p>
   </div>
 
   <section id="services" class="fade-in">
@@ -172,7 +310,25 @@
     </div>
   </section>
 
+  <section id="contact" class="fade-in">
+    <h3>Связаться с нами</h3>
+    <form>
+      <input type="text" placeholder="Ваше имя" required />
+      <input type="email" placeholder="Email" required />
+      <textarea rows="5" placeholder="Ваше сообщение" required></textarea>
+      <button type="submit">Отправить</button>
+    </form>
+  </section>
+
+  <footer class="fade-in">
+    <p>&copy; 2025 КГР. Все права защищены.</p>
+  </footer>
+
   <script>
+    function toggleMenu() {
+      document.getElementById('mobile-menu').classList.toggle('show');
+    }
+
     function filterCards(category) {
       const cards = document.querySelectorAll('.card');
       const buttons = document.querySelectorAll('.filters button');
@@ -198,24 +354,5 @@
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
-
-  <section id="contact" class="fade-in">
-    <h3>Связаться с нами</h3>
-    <form>
-      <input type="text" placeholder="Ваше имя" required />
-      <input type="email" placeholder="Email" required />
-      <textarea rows="5" placeholder="Ваше сообщение" required></textarea>
-      <button type="submit">Отправить</button>
-    </form>
-  </section>
-
-  <footer class="fade-in">
-    <p>&copy; 2025 КГР. Все права защищены.</p>
-  </footer>
-  <script>
-  function toggleMenu() {
-    document.getElementById('mobile-menu').classList.toggle('show');
-  }
-</script>
 </body>
 </html>
